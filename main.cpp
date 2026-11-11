@@ -63,6 +63,10 @@ int main(int argc, char* argv[])
                 clients[i]->send(input);
             }
         }
+        for (unsigned long i = 0; i < clients.size(); i++)
+        {
+            delete clients[i];
+        }
         return EXIT_SUCCESS;
     }
     catch (const std::exception& err)

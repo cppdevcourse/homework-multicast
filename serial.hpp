@@ -18,7 +18,7 @@ public:
     Device(Device&&) = delete;
     Device& operator=(const Device&) = delete;
     Device& operator=(Device&&) = delete;
-    ~Device() noexcept;
+    ~Device() noexcept override;
     int Handler() const noexcept;
 
     bool send(std::string_view message) override;
