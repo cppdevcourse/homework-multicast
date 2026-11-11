@@ -1,5 +1,8 @@
 #pragma once
 
+#include "multicast_client.h"
+
+
 #include <string_view>
 
 namespace multicast
@@ -7,7 +10,7 @@ namespace multicast
 namespace serial
 {
 
-class Device
+class Device : public MulticastClient
 {
 public:
     explicit Device(std::string_view path);
@@ -18,6 +21,7 @@ public:
     ~Device() noexcept;
     int Handler() const noexcept;
 
+    bool send(std::string_view message) override;
 private:
     int fd_;
 };
